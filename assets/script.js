@@ -16,26 +16,36 @@ var searchDiv = document.querySelector("#search");
 var currentDiv = document.querySelector("#current");
 var forcastDiv = document.querySelector("#forcast");
 
+// DISPLAY SEARCH BAR + RECENT SEARCH HISTORIES
+var searchBar = document.createElement("input");
+searchBar.setAttribute("class", "search-bar");
+var searchBtn = document.createElement("Button");
+searchBtn.setAttribute("class", "search-button")
+searchBtn.textContent = "search";
+searchDiv.appendChild(searchBar);
+searchDiv.appendChild(searchBtn);
+
 // DISPLAY CURRENT WEATHER DATA
 var displayCurrentWeather = function(data) {
 
     //CREATE DIVS
     var cardDiv = document.createElement("div");
-    cardDiv.setAttribute("class", "current-weather");
-    var cityHeading = document.createElement("h1");
+    cardDiv.setAttribute("class", "current-weather col-12");
+    var cityHeading = document.createElement("h2");
     cityHeading.setAttribute("class", "city-heading");
     var locallyStoredCity = localStorage.getItem("city");
     cityHeading.textContent = locallyStoredCity;
-    var currentDate = document.createElement("h2");
+    var currentDate = document.createElement("h3");
     currentDate.setAttribute("class", "current-date");
     currentDate.textContent = getTheDate(0);
     var weatherIcon = document.createElement("img");
     weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png");
+    weatherIcon.setAttribute("class", "current-weather-icon")
     var currentWeatherList = document.createElement("div");
     currentWeatherList.setAttribute("class", "current-weather-list");
     var temp = document.createElement("p");
     temp.setAttribute("class", "temp");
-    temp.textContent = "Temperature: " + data.current.temp;
+    temp.textContent = "Temp: " + data.current.temp;
     var humidity = document.createElement("p");
     humidity.setAttribute("class", "humidity");
     humidity.textContent = "Humidity: " + data.current.humidity;
@@ -64,15 +74,15 @@ var displayForcast = function(data, i) {
     console.log("index: " + i);
     //CREATE DIVS
     var forcastCardDiv = document.createElement("div");
-    forcastCardDiv.setAttribute("class", "forcast-weather");
-    var forcastDate = document.createElement("h2")
+    forcastCardDiv.setAttribute("class", "forcast-weather col-md-2 col-6");
+    var forcastDate = document.createElement("h6")
     forcastDate.setAttribute("class", "forcast-date");
     forcastDate.textContent = getTheDate(i);
     var forcastIcon = document.createElement("img");
     forcastIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png");
     var forcastTemp = document.createElement("p");
     forcastTemp.setAttribute("class", "forcast-temp");
-    forcastTemp.textContent = "Temperature: " + data.temp.day;
+    forcastTemp.textContent = "Temp: " + data.temp.day;
     var forcastWindSpeed = document.createElement("p");
     forcastWindSpeed.setAttribute("class", "forcast-wind-spped")
     forcastWindSpeed.textContent = "Wind Speed: " + data.wind_speed;
@@ -88,6 +98,21 @@ var displayForcast = function(data, i) {
     forcastCardDiv.appendChild(forcastHumidity);
     forcastDiv.appendChild(forcastCardDiv)
     
+}
+
+// CLEAR WEATHER
+
+var clearWeather = function() {
+    var oldCurrentElement = document.querySelector(".current-weather")
+    var oldForcastElement = document.querySelector(".forcast-weather")
+    if (oldCurrentElement && oldForcastElement) {
+        currentDiv.removeChild(oldCurrentElement);
+        forcastDiv.removeChild(oldForcastElement);
+        for (i = 0 ; i < 4 ; i++) {
+            var oldForcastElement = document.querySelector(".forcast-weather")
+            forcastDiv.removeChild(oldForcastElement);
+        }
+    }
 }
 
 // GET WEATHER FUNCTION
@@ -122,4 +147,14 @@ var getWeather = function(city) {
 
 }
 
-getWeather("New York City")
+$(".search-bar").autocomplete({
+    // source: LOCAL STORAGE
+  });
+
+$(".search-button").click(function() {
+    var searchInput = $(".search-bar").val();
+    localStorage.setItem(searchInput, searchInput);
+    clearWeather();
+    getWeather(searchInput);
+    $(".search-bar").val("");
+ });
