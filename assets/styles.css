@@ -8,6 +8,7 @@
     letter-spacing: .5em;
     padding: 5%;
     color:#EF476F;
+
 }
 
 .search-bar {
@@ -30,12 +31,26 @@
 .current-weather-list,
 .temp,
 .humidity,
-.windSpeed,
+.windSpeed {
+    background-color: #06D6A0;
+    color:#F8FFE5;
+    border-radius: 15px;
+    letter-spacing: .2em;
+}
 .uvIndex {
     background-color: #06D6A0;
     color:#F8FFE5;
     border-radius: 15px;
     letter-spacing: .2em;
+    padding: 1% 2%;
+}
+
+.search-element {
+    border-radius: 15px;
+    margin: 2% 5%;
+    text-align: center;
+    background-color: #EF476F;
+    color: #F8FFE5;
 }
 
 .current-weather {
