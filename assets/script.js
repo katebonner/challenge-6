@@ -183,11 +183,34 @@ var getWeather = function(city) {
 
 }
 displaySearch();
-$(".search-button").click(function() {
-    var searchInput = $(".search-bar").val();
-    clearWeather();
-    getWeather(searchInput);
-    $(".search-bar").val("");
-    clearSearch();
-    displaySearch();
- });
+
+// $(".search-button").click(function() {
+//     var searchInput = $(".search-bar").val();
+//     clearWeather();
+//     getWeather(searchInput);
+//     $(".search-bar").val("");
+//     clearSearch();
+//     displaySearch();
+//  });
+
+function handler(event){
+    var target = $(event.target);
+    if (target.is(".search-element")){
+        var searchInput = event.target.textContent;
+    }
+    if (target.is(".search-button")){
+        var searchInput = $(".search-bar").val();
+        $(".search-bar").val("");
+    }
+        clearWeather();
+        getWeather(searchInput);
+        clearSearch();
+        displaySearch();
+}
+$("p").click(handler);
+$(".search-button").click(handler);
+
+
+
+
+
