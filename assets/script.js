@@ -154,7 +154,7 @@ var clearWeather = function() {
 
 // GET WEATHER FUNCTION
 var getWeather = function(city) {
-    var locationUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + key;
+    var locationUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + key;
     localStorage.setItem(city, city);
     fetch(locationUrl)
         .then(function(response) {
@@ -184,30 +184,25 @@ var getWeather = function(city) {
 }
 displaySearch();
 
-// $(".search-button").click(function() {
-//     var searchInput = $(".search-bar").val();
-//     clearWeather();
-//     getWeather(searchInput);
-//     $(".search-bar").val("");
-//     clearSearch();
-//     displaySearch();
-//  });
 
 function handler(event){
     var target = $(event.target);
     if (target.is(".search-element")){
         var searchInput = event.target.textContent;
+        console.log(target);
     }
     if (target.is(".search-button")){
         var searchInput = $(".search-bar").val();
         $(".search-bar").val("");
+        console.log(target);
     }
         clearWeather();
         getWeather(searchInput);
         clearSearch();
         displaySearch();
 }
-$("p").click(handler);
+
+$(".search-element").click(handler);
 $(".search-button").click(handler);
 
 
