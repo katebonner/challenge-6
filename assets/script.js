@@ -67,7 +67,7 @@ var displayCurrentWeather = function(data, city) {
     currentDate.setAttribute("class", "current-date");
     currentDate.textContent = getTheDate(0);
     var weatherIcon = document.createElement("img");
-    weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png");
+    weatherIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png");
     weatherIcon.setAttribute("class", "current-weather-icon")
     var currentWeatherList = document.createElement("div");
     currentWeatherList.setAttribute("class", "current-weather-list");
@@ -117,7 +117,7 @@ var displayForcast = function(data, i) {
     forcastDate.setAttribute("class", "forcast-date");
     forcastDate.textContent = getTheDate(i);
     var forcastIcon = document.createElement("img");
-    forcastIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png");
+    forcastIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png");
     var forcastTemp = document.createElement("p");
     forcastTemp.setAttribute("class", "forcast-temp");
     forcastTemp.textContent = "Temp: " + data.temp.day;
