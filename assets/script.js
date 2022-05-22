@@ -185,25 +185,32 @@ var getWeather = function(city) {
 displaySearch();
 
 
-function handler(event){
+function searchElementHandler(event){
     var target = $(event.target);
-    if (target.is(".search-element")){
-        var searchInput = event.target.textContent;
-        console.log(target);
-    }
-    if (target.is(".search-button")){
+    console.log(target);
+    var searchElementInput = event.target.textContent;
+    console.log("target is search element")
+    clearWeather();
+    getWeather(searchElementInput);
+    clearSearch();
+    displaySearch();
+    $(".search-element").click(searchElementHandler);
+}
+
+function searchButtonHandler(event){
         var searchInput = $(".search-bar").val();
         $(".search-bar").val("");
-        console.log(target);
-    }
+        console.log("target is search button")
         clearWeather();
         getWeather(searchInput);
         clearSearch();
         displaySearch();
+        $(".search-element").click(searchElementHandler);
 }
 
-$(".search-element").click(handler);
-$(".search-button").click(handler);
+$(".search-element").click(searchElementHandler);
+$(".search-button").click(searchButtonHandler);
+
 
 
 
