@@ -112,7 +112,7 @@ var displayForcast = function(data, i) {
 
     //CREATE DIVS
     var forcastCardDiv = document.createElement("div");
-    forcastCardDiv.setAttribute("class", "forcast-weather col-md-2 col-6");
+    forcastCardDiv.setAttribute("class", "forcast-weather col-md-2 col-5");
     var forcastDate = document.createElement("h6")
     forcastDate.setAttribute("class", "forcast-date");
     forcastDate.textContent = getTheDate(i);
