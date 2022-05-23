@@ -2,7 +2,7 @@
 
 ## Description
 
-This project leverages the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to fetch and dislay weather data for any given city.
+This project leverages the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to fetch and dislay weather data for any given city. It displays a dashboard populated with the current weather, a 5 day forecast, and the user's recent search history from local memory.
 
 ![weather dashboard](./assets/weather-dashboard.png)
 
