@@ -2,7 +2,9 @@
 
 ## Description
 
-insert description
+This project leverages the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to fetch and dislay weather data for any given city.
+
+![weather dashboard](./assets/weather-dashboard.png)
 
 
 **Copied here is a link to the deployed application:**
@@ -40,11 +42,12 @@ code .
 
 ## Usage
 
-insert usage
+This project provides an example in JavaScript of how to fetch data from a server-side API and re-structure it into dynamically generated HTML for the end user's access. More simply, it can also be used to just check the weather conditions of any given city.
 
 
 ## Credits
 
+This site fetches weather data given a city name from [OpenWeather One Call API](https://openweathermap.org/api/one-call-api)
 
 This site was built using [GitHub Pages](https://pages.github.com/).
 
