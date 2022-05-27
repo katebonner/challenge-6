@@ -8,7 +8,7 @@ This project leverages the [OpenWeather One Call API](https://openweathermap.org
 
 
 **Copied here is a link to the deployed application:**
-(https://katebonner.github.io/challenge-6/)
+(https://katebonner.github.io/weather-dashboard/)
 
 
 ## Table of Contents 
@@ -33,7 +33,7 @@ cd <directory-name>
 ```
 Clone this repository.
 ```md
-git clone git@github.com:katebonner/challenge-6.git
+git clone git@github.com:katebonner/weather-dashboard.git
 ```
 Open the directory you have just created in your code editor of choice either manually or via:
 ```md
